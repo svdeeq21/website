@@ -1,12 +1,36 @@
-"use client";
-import { useState } from "react";
+type Project = {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  link: string;
+  linkLabel: string;
+  tags: string[];
+  year: string;
+  image: string;
+  featured?: boolean;
+};
 
-const projects = [
+const projects: Project[] = [
   {
-    title: "AFIT Admission Assistant",
-    category: "Machine Learning",
+    id: "ai-whatsapp-sales-system",
+    title: "AI WhatsApp Sales System",
+    category: "Automation",
     description:
-      "AI-powered conversational assistant for navigating AFIT admission processes. Built with Python and deployed interactively.",
+      "An AI-powered WhatsApp workflow built for lead engagement, qualification, and follow-up automation.",
+    link: "#",
+    linkLabel: "Case Study Coming Soon",
+    tags: ["Python", "Evolution API", "Render", "Railway", "Docker"],
+    year: "2026",
+    image: "/ai.png",
+    featured: true,
+  },
+  {
+    id: "afit-admission-assistant",
+    title: "AFIT Admission Assistant",
+    category: "Conversational AI",
+    description:
+      "A conversational assistant designed to simplify admission guidance and answer common student questions.",
     link: "https://www.loom.com/share/29575ac8814c46d6bb0211ae0214a095?sid=9af96492-d5cf-4231-8592-94f7b9c73722",
     linkLabel: "Watch Demo",
     tags: ["Python", "NLP", "AI"],
@@ -14,139 +38,176 @@ const projects = [
     image: "/afitassistant.png",
   },
   {
-    title: "Breast Cancer Prediction Model",
-    category: "Machine Learning",
+    id: "mentor-ai",
+    title: "Mentor AI",
+    category: "Knowledge System",
     description:
-      "Diagnostic ML model deployed on Streamlit. Uses classification algorithms trained on medical datasets to assist early screening.",
-    link: "https://svdeeqbreastcancermodel.streamlit.app/",
-    linkLabel: "Live App",
-    tags: ["Python", "Scikit-learn", "Streamlit"],
+      "A retrieval-based document assistant for summarization, question answering, and easier knowledge access.",
+    link: "https://www.loom.com/share/29575ac8814c46d6bb0211ae0214a095?sid=9af96492-d5cf-4231-8592-94f7b9c73722",
+    linkLabel: "Watch Demo",
+    tags: ["Python", "RAG", "Embeddings"],
     year: "2025",
-     image: "/bcancer.png",
+    image: "/mentorai.png",
   },
   {
+    id: "malaria-diagnosis-model",
     title: "Malaria Diagnosis Model",
-    category: "Machine Learning",
+    category: "Applied ML",
     description:
-      "Pattern recognition model for malaria diagnosis. Trained and evaluated using KNN and SVM classifiers on clinical data.",
+      "A predictive machine learning project exploring clinical-data-based diagnosis support.",
     link: "#",
-    linkLabel: "Coming Soon",
+    linkLabel: "Project Notes",
     tags: ["Python", "KNN", "SVM"],
     year: "2025",
-     image: "/malaria.png",
+    image: "/malaria.png",
   },
 ];
 
-const filters = ["All", "Machine Learning", "Web Development", "Java"];
+const featuredProject = projects.find((project) => project.featured);
+const otherProjects = projects.filter((project) => !project.featured);
 
 export default function PortfolioPage() {
-  const [active, setActive] = useState("All");
-
-  const filtered =
-    active === "All"
-      ? projects
-      : projects.filter((p) => p.category === active);
-
   return (
     <div className="pt-16">
-      {/* Header */}
-      <section className="py-24 border-b border-dark-70">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="section-label mb-4">My Work</p>
-          <h1 className="font-display font-800 text-5xl sm:text-6xl mb-6">
+      <section className="border-b border-dark-70 py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="section-label mb-4">Work</p>
+          <h1 className="mb-6 font-display text-5xl font-extrabold sm:text-6xl">
             Portfolio
           </h1>
-          <p className="text-dark-30 max-w-xl text-base leading-relaxed">
-            A selection of projects across machine learning, software
-            engineering, and web development.
+          <p className="max-w-2xl text-base leading-relaxed text-dark-30">
+            A selection of AI, automation, and machine learning projects.
           </p>
         </div>
       </section>
 
-      {/* Filters */}
-      <section className="py-10 border-b border-dark-70 sticky top-16 bg-dark-100/95 backdrop-blur z-10">
-        <div className="max-w-6xl mx-auto px-6 flex gap-3 flex-wrap">
-          {filters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActive(f)}
-              className={`text-xs font-display tracking-widest uppercase px-5 py-2 border transition-all ${
-                active === f
-                  ? "border-orange text-orange"
-                  : "border-dark-60 text-dark-40 hover:border-white hover:text-white"
-              }`}
+      {featuredProject && (
+        <section className="border-b border-dark-70 py-20">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mb-10">
+              <p className="section-label mb-3">Featured</p>
+              <h2 className="font-display text-4xl font-extrabold">
+                {featuredProject.title}
+              </h2>
+            </div>
+
+            <article
+              id={featuredProject.id}
+              className="card-glow overflow-hidden border border-dark-70 bg-dark-85 scroll-mt-28"
             >
-              {f}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* Projects */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          {filtered.length === 0 ? (
-            <div className="py-24 text-center">
-              <p className="text-dark-40 font-display text-sm tracking-widest uppercase">
-                No projects in this category yet.
-              </p>
-            </div>
-          ) : (
-            <div className="grid lg:grid-cols-3 gap-6">
-              {filtered.map((project) => (
-                <div
-                  key={project.title}
-                  className="card-glow group border border-dark-70 bg-dark-85 flex flex-col"
-                >
-                  {/* Top color bar */}
-                  <div className="h-1 bg-dark-70 group-hover:bg-orange transition-colors" />
-
-                  <div className="w-full h-48 overflow-hidden">
-    <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-  </div>
-
-                  <div className="p-8 flex flex-col flex-1">
-                    <div className="flex items-center justify-between mb-6">
-                      <span className="text-xs font-display tracking-widest uppercase text-orange">
-                        {project.category}
-                      </span>
-                      <span className="text-xs text-dark-40 font-display">
-                        {project.year}
-                      </span>
-                    </div>
-
-                    <h2 className="font-display font-700 text-xl mb-3 group-hover:text-orange transition-colors">
-                      {project.title}
-                    </h2>
-
-                    <p className="text-dark-30 text-sm leading-relaxed mb-6 flex-1">
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mb-8">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs font-display tracking-wider uppercase px-3 py-1 border border-dark-60 text-dark-40"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-display tracking-widest uppercase text-dark-40 group-hover:text-orange transition-colors border-t border-dark-70 pt-4"
-                    >
-                      {project.linkLabel} →
-                    </a>
-                  </div>
+              <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
+                <div className="h-72 overflow-hidden lg:h-full">
+                  <img
+                    src={featuredProject.image}
+                    alt={featuredProject.title}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
-              ))}
-            </div>
-          )}
+                <div className="p-8">
+                  <div className="mb-5 flex items-center justify-between gap-4">
+                    <span className="text-xs font-display tracking-widest text-orange uppercase">
+                      {featuredProject.category}
+                    </span>
+                    <span className="text-xs font-display text-dark-40">
+                      {featuredProject.year}
+                    </span>
+                  </div>
+                  <p className="mb-6 max-w-xl text-sm leading-relaxed text-dark-30">
+                    {featuredProject.description}
+                  </p>
+                  <div className="mb-8 flex flex-wrap gap-2">
+                    {featuredProject.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="border border-dark-60 px-3 py-1 text-xs font-display tracking-wider text-dark-40 uppercase"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <a
+                    href={featuredProject.link}
+                    target={
+                      featuredProject.link === "#" ? undefined : "_blank"
+                    }
+                    rel={
+                      featuredProject.link === "#"
+                        ? undefined
+                        : "noopener noreferrer"
+                    }
+                    className="inline-block border border-orange px-6 py-3 text-xs font-display tracking-widest text-orange uppercase transition-all hover:bg-orange hover:text-white"
+                  >
+                    {featuredProject.linkLabel}
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      )}
+
+      <section className="py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-10">
+            <p className="section-label mb-3">Projects</p>
+            <h2 className="font-display text-4xl font-extrabold">
+              More work
+            </h2>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {otherProjects.map((project) => (
+              <article
+                key={project.id}
+                id={project.id}
+                className="card-glow flex flex-col overflow-hidden border border-dark-70 bg-dark-85 scroll-mt-28"
+              >
+                <div className="h-56 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-8">
+                  <div className="mb-5 flex items-center justify-between gap-4">
+                    <span className="text-xs font-display tracking-widest text-orange uppercase">
+                      {project.category}
+                    </span>
+                    <span className="text-xs font-display text-dark-40">
+                      {project.year}
+                    </span>
+                  </div>
+                  <h3 className="mb-3 font-display text-2xl font-bold">
+                    {project.title}
+                  </h3>
+                  <p className="mb-6 flex-1 text-sm leading-relaxed text-dark-30">
+                    {project.description}
+                  </p>
+                  <div className="mb-6 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="border border-dark-60 px-3 py-1 text-xs font-display tracking-wider text-dark-40 uppercase"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <a
+                    href={project.link}
+                    target={project.link === "#" ? undefined : "_blank"}
+                    rel={
+                      project.link === "#" ? undefined : "noopener noreferrer"
+                    }
+                    className="border-t border-dark-70 pt-4 text-xs font-display tracking-widest text-dark-40 uppercase transition-colors hover:text-orange"
+                  >
+                    {project.linkLabel}
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </div>
