@@ -16,18 +16,18 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Sadiq Shehu — AI/ML & Software Engineer",
+  title: "Sadiq Shehu — AI Engineer & Automation Builder",
   description:
-    "Software Engineer and Machine Learning Developer specializing in intelligent systems, Python, Java, and web solutions.",
+    "AI Engineer and founder of Hooze Enterprises. I design and build intelligent software systems — AI agents, WhatsApp automation, RAG pipelines, and AI SaaS products. Based in Nigeria, building globally.",
   icons: {
     icon: "/sh1.png",
     shortcut: "/sh1.png",
     apple: "/sh1.png",
   },
   openGraph: {
-    title: "Sadiq Shehu — AI/ML & Software Engineer",
+    title: "Sadiq Shehu — AI Engineer & Automation Builder",
     description:
-      "Software Engineer and Machine Learning Developer specializing in intelligent systems.",
+      "AI Engineer building intelligent systems that automate business operations and ship as production AI products.",
     type: "website",
   },
 };

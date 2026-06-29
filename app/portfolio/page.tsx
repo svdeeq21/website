@@ -13,53 +13,77 @@ type Project = {
 
 const projects: Project[] = [
   {
-    id: "ai-whatsapp-sales-system",
-    title: "AI WhatsApp Sales System",
-    category: "Automation",
+    id: "whatsapp-sales-crm",
+    title: "WhatsApp AI Sales CRM",
+    category: "AI Automation",
     description:
-      "An AI-powered WhatsApp workflow built for lead engagement, qualification, and follow-up automation.",
+      "Multi-tenant conversational CRM built for real estate agencies. Full LLM orchestration with Groq/Gemini fallback chain, pgvector-powered RAG for property knowledge, lead scoring, rolling conversation memory, state machine-driven sales flow, and a Next.js analytics dashboard. Pilot client: Praise Dynasty Realty, Abuja.",
     link: "#",
     linkLabel: "Case Study Coming Soon",
-    tags: ["Python", "Evolution API", "Render", "Railway", "Docker"],
-    year: "2026",
+    tags: ["Python", "FastAPI", "Supabase", "pgvector", "Groq", "Gemini", "Evolution API", "Next.js", "Railway"],
+    year: "2025–2026",
     image: "/ai.png",
     featured: true,
+  },
+  {
+    id: "commerce-chat",
+    title: "commerce-chat",
+    category: "AI E-Commerce",
+    description:
+      "WhatsApp-native checkout and digital product fulfillment platform for Nigerian sellers. Deterministic AI state machine, Paystack payment verification, atomic delivery logic, and per-instance webhook auth.",
+    link: "#",
+    linkLabel: "Case Study Coming Soon",
+    tags: ["Python", "FastAPI", "Next.js", "Supabase", "Paystack", "Evolution API", "Groq", "Vercel"],
+    year: "2026",
+    image: "/ai.png",
+  },
+  {
+    id: "clinical-clarity",
+    title: "Clinical Clarity",
+    category: "Health Tech",
+    description:
+      "Medication management app for chronic disease patients in Nigeria. Offline-first architecture, AI-driven adherence reminders, WhatsApp caregiver alert layer, and a B2B clinic/health program business model.",
+    link: "#",
+    linkLabel: "In Development",
+    tags: ["React Native", "FastAPI", "Supabase", "WhatsApp", "AI"],
+    year: "2026",
+    image: "/ai.png",
+  },
+  {
+    id: "studyapp",
+    title: "StudyApp",
+    category: "AI Education",
+    description:
+      "Adaptive AI study engine for Nigerian university students. Groq LLaMA-powered Q&A, Qdrant semantic search, 8 NUC faculty subject categories, and personalized learning paths.",
+    link: "#",
+    linkLabel: "Project Notes",
+    tags: ["Python", "FastAPI", "Groq", "Qdrant", "Next.js", "Supabase", "Railway"],
+    year: "2025",
+    image: "/mentorai.png",
+  },
+  {
+    id: "outbound-acquisition",
+    title: "AI Outbound Acquisition System",
+    category: "AI Automation",
+    description:
+      "Cold email engine for international outreach. Website analysis, AI draft generation with Groq/Gemini fallback, human approval gate, Gmail send, and reply tracking — all in a Streamlit dashboard.",
+    link: "#",
+    linkLabel: "Project Notes",
+    tags: ["Python", "Streamlit", "Groq", "Gemini", "Gmail", "Supabase"],
+    year: "2025",
+    image: "/ai.png",
   },
   {
     id: "afit-admission-assistant",
     title: "AFIT Admission Assistant",
     category: "Conversational AI",
     description:
-      "A conversational assistant designed to simplify admission guidance and answer common student questions.",
+      "Conversational assistant designed to simplify admission guidance and answer common student questions for Air Force Institute of Technology.",
     link: "https://www.loom.com/share/29575ac8814c46d6bb0211ae0214a095?sid=9af96492-d5cf-4231-8592-94f7b9c73722",
     linkLabel: "Watch Demo",
     tags: ["Python", "NLP", "AI"],
     year: "2025",
     image: "/afitassistant.png",
-  },
-  {
-    id: "mentor-ai",
-    title: "Mentor AI",
-    category: "Knowledge System",
-    description:
-      "A retrieval-based document assistant for summarization, question answering, and easier knowledge access.",
-    link: "https://www.loom.com/share/29575ac8814c46d6bb0211ae0214a095?sid=9af96492-d5cf-4231-8592-94f7b9c73722",
-    linkLabel: "Watch Demo",
-    tags: ["Python", "RAG", "Embeddings"],
-    year: "2025",
-    image: "/mentorai.png",
-  },
-  {
-    id: "malaria-diagnosis-model",
-    title: "Malaria Diagnosis Model",
-    category: "Applied ML",
-    description:
-      "A predictive machine learning project exploring clinical-data-based diagnosis support.",
-    link: "#",
-    linkLabel: "Project Notes",
-    tags: ["Python", "KNN", "SVM"],
-    year: "2025",
-    image: "/malaria.png",
   },
 ];
 
@@ -76,7 +100,7 @@ export default function PortfolioPage() {
             Portfolio
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-dark-30">
-            A selection of AI, automation, and machine learning projects.
+            AI systems, automation products, and backend infrastructure — built for real businesses, running in production.
           </p>
         </div>
       </section>
@@ -127,14 +151,8 @@ export default function PortfolioPage() {
                   </div>
                   <a
                     href={featuredProject.link}
-                    target={
-                      featuredProject.link === "#" ? undefined : "_blank"
-                    }
-                    rel={
-                      featuredProject.link === "#"
-                        ? undefined
-                        : "noopener noreferrer"
-                    }
+                    target={featuredProject.link === "#" ? undefined : "_blank"}
+                    rel={featuredProject.link === "#" ? undefined : "noopener noreferrer"}
                     className="inline-block border border-orange px-6 py-3 text-xs font-display tracking-widest text-orange uppercase transition-all hover:bg-orange hover:text-white"
                   >
                     {featuredProject.linkLabel}
@@ -150,9 +168,7 @@ export default function PortfolioPage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-10">
             <p className="section-label mb-3">Projects</p>
-            <h2 className="font-display text-4xl font-extrabold">
-              More work
-            </h2>
+            <h2 className="font-display text-4xl font-extrabold">More work</h2>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-3">
@@ -197,9 +213,7 @@ export default function PortfolioPage() {
                   <a
                     href={project.link}
                     target={project.link === "#" ? undefined : "_blank"}
-                    rel={
-                      project.link === "#" ? undefined : "noopener noreferrer"
-                    }
+                    rel={project.link === "#" ? undefined : "noopener noreferrer"}
                     className="border-t border-dark-70 pt-4 text-xs font-display tracking-widest text-dark-40 uppercase transition-colors hover:text-orange"
                   >
                     {project.linkLabel}

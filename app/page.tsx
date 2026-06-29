@@ -13,17 +13,17 @@ export default function HomePage() {
             </p>
 
             <h1 className="font-display font-800 text-5xl sm:text-6xl lg:text-7xl leading-[1.0] mb-8 animate-fade-up stagger-2">
-              AI/ML
+              AI Engineer
               <br />
-              <span className="text-orange">&amp; Software</span>
+              <span className="text-orange">&amp; Automation</span>
               <br />
-              Engineer
+              Builder
             </h1>
 
             <p className="text-dark-30 text-base leading-relaxed max-w-md mb-10 animate-fade-up stagger-3">
-              I build intelligent systems and functional web solutions that
-              bridge traditional software engineering with modern AI. Based in
-              Nigeria, working globally.
+              I design and build intelligent software systems that help businesses
+              automate operations, engage customers, and ship AI products that
+              actually work. Based in Nigeria, building globally.
             </p>
 
             <div className="flex flex-wrap gap-4 animate-fade-up stagger-4">
@@ -42,18 +42,17 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right — stat card grid */}
-
+          {/* Right — photo + stat cards */}
           <div className="flex flex-col gap-6 animate-fade-up stagger-5">
             <div className="w-full overflow-hidden border border-dark-70">
               <img src="/pass.png" alt="Sadiq Shehu" className="w-full h-full object-cover object-center" />
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: "2+", label: "Years Building" },
-                { value: "5+", label: "ML Models Deployed" },
-                { value: "Java", label: "Primary OOP Language" },
-                { value: "Python", label: "Primary ML Language" },
+                { value: "4+", label: "Years Building" },
+                { value: "6+", label: "Live AI Products" },
+                { value: "Python", label: "Primary Language" },
+                { value: "FastAPI", label: "Backend Stack" },
               ].map((stat) => (
                 <div key={stat.label} className="card-glow border border-dark-70 bg-dark-85 p-8">
                   <div className="font-display font-800 text-3xl text-orange mb-2">{stat.value}</div>
@@ -65,7 +64,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── WHAT I DO (teaser) ───────────────────────────── */}
+      {/* ─── WHAT I DO ────────────────────────────────────── */}
       <section className="py-24 border-t border-dark-70">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-4">
@@ -85,23 +84,23 @@ export default function HomePage() {
             {[
               {
                 num: "01",
-                title: "Machine Learning",
-                desc: "End-to-end ML pipelines — data preprocessing, model training, evaluation, and Streamlit deployment.",
+                title: "AI Agents & LLMs",
+                desc: "Production-ready AI agents powered by LLMs. Tool calling, memory, state machines, RAG pipelines, and multi-agent orchestration.",
               },
               {
                 num: "02",
-                title: "Java Development",
-                desc: "OOP-first applications with clean architecture, data structures, and algorithmic problem solving.",
+                title: "WhatsApp Automation",
+                desc: "Full WhatsApp-native products — sales bots, CRM systems, customer support automation, and lead qualification flows.",
               },
               {
                 num: "03",
-                title: "Web Development",
-                desc: "Responsive, semantic, and performant web interfaces. Structure and performance without the bloat.",
+                title: "Backend AI Systems",
+                desc: "FastAPI backends with async architecture, webhooks, authentication, and AI integrations that scale in production.",
               },
               {
                 num: "04",
-                title: "Data Engineering",
-                desc: "Automation pipelines for collection, transformation, and ML workflow integration using Python and APIs.",
+                title: "AI SaaS Products",
+                desc: "End-to-end SaaS builds from product strategy through backend, frontend, and deployment — with AI as the core engine.",
               },
             ].map((item) => (
               <div
@@ -123,7 +122,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── FEATURED PROJECT ─────────────────────────────── */}
+      {/* ─── FEATURED PROJECTS ────────────────────────────── */}
       <section className="py-24 border-t border-dark-70">
         <div className="max-w-6xl mx-auto px-6">
           <p className="section-label mb-3">Featured Work</p>
@@ -134,29 +133,29 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-3 gap-6">
             {[
               {
-                title: "AFIT Admission Assistant",
-                category: "Machine Learning",
-                desc: "AI-powered assistant for navigating AFIT admission processes, built with Python and deployed interactively.",
-                link: "https://www.loom.com/share/29575ac8814c46d6bb0211ae0214a095",
+                title: "WhatsApp AI Sales CRM",
+                category: "AI Automation",
+                desc: "Multi-tenant conversational CRM for real estate agencies. LLM orchestration, RAG property knowledge, lead scoring, and full sales pipeline automation over WhatsApp.",
+                link: "#",
               },
               {
-                title: "Breast Cancer Model",
-                category: "Machine Learning",
-                desc: "Predictive diagnostic model deployed on Streamlit. Uses classification algorithms to assist medical screening.",
-                link: "https://svdeeqbreastcancermodel.streamlit.app/",
+                title: "commerce-chat",
+                category: "AI E-Commerce",
+                desc: "WhatsApp-native checkout and digital fulfillment platform for Nigerian sellers. AI-driven state machine, Paystack payments, and automated product delivery.",
+                link: "#",
               },
               {
-                title: "Malaria Diagnosis Model",
-                category: "Machine Learning",
-                desc: "ML model trained for malaria diagnosis pattern recognition. Part of a larger health-tech initiative.",
+                title: "Clinical Clarity",
+                category: "Health Tech",
+                desc: "Medication management app for chronic disease patients in Nigeria. Offline-first architecture, AI reminders, and WhatsApp caregiver alerts.",
                 link: "#",
               },
             ].map((project) => (
               <a
                 key={project.title}
                 href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={project.link === "#" ? undefined : "_blank"}
+                rel={project.link === "#" ? undefined : "noopener noreferrer"}
                 className="card-glow group border border-dark-70 bg-dark-85 p-8 block"
               >
                 <div className="text-xs font-display tracking-widest uppercase text-orange mb-4">
@@ -169,7 +168,7 @@ export default function HomePage() {
                   {project.desc}
                 </p>
                 <span className="text-xs font-display tracking-widest uppercase text-dark-40 group-hover:text-orange transition-colors">
-                  View Project →
+                  {project.link === "#" ? "Case Study Coming Soon →" : "View Project →"}
                 </span>
               </a>
             ))}
@@ -186,6 +185,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── STACK STRIP ──────────────────────────────────── */}
+      <section className="py-16 border-t border-dark-70">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="section-label mb-10 text-center">Core Stack</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              "Python", "FastAPI", "Next.js", "Supabase", "PostgreSQL",
+              "pgvector", "LangChain", "Groq", "Gemini", "Evolution API",
+              "Paystack", "Docker", "Railway", "Render", "Vercel",
+            ].map((tech) => (
+              <span
+                key={tech}
+                className="text-xs font-display tracking-wider uppercase px-4 py-2 border border-dark-60 text-dark-40 hover:border-orange hover:text-orange transition-all"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── CTA BAND ─────────────────────────────────────── */}
       <section className="py-24 border-t border-dark-70">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-8">
@@ -194,7 +214,7 @@ export default function HomePage() {
               Ready to work together?
             </h2>
             <p className="text-dark-30 text-sm">
-              Open for freelance, internships, and full-time opportunities.
+              Open for freelance, consulting, and product collaborations.
             </p>
           </div>
           <Link
