@@ -26,6 +26,19 @@ const projects: Project[] = [
     featured: true,
   },
   {
+    id: "hooze-ai",
+    title: "Hooze AI",
+    category: "AI Automation Studio",
+    description:
+      "The Hooze Enterprises done-for-you layer: meeting-booking assistants, lead scraping and enrichment, WhatsApp AI sales bots, content pipelines, and CRM sync — packaged as a fixed-scope offer for small business owners. Full marketing site, offer, and pricing engine, live in production.",
+    link: "https://hoozeai.vercel.app",
+    linkLabel: "Visit Live Site",
+    tags: ["Next.js", "TypeScript", "Vercel", "GitHub Actions", "Analytics", "Gemini", "Groq"],
+    year: "2026",
+    image: "/ai.png",
+    featured: true,
+  },
+  {
     id: "commerce-chat",
     title: "commerce-chat",
     category: "AI E-Commerce",
@@ -87,7 +100,7 @@ const projects: Project[] = [
   },
 ];
 
-const featuredProject = projects.find((project) => project.featured);
+const featuredProjects = projects.filter((project) => project.featured);
 const otherProjects = projects.filter((project) => !project.featured);
 
 export default function PortfolioPage() {
@@ -105,61 +118,69 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {featuredProject && (
+      {featuredProjects.length > 0 && (
         <section className="border-b border-dark-70 py-20">
           <div className="mx-auto max-w-6xl px-6">
             <div className="mb-10">
               <p className="section-label mb-3">Featured</p>
               <h2 className="font-display text-4xl font-extrabold">
-                {featuredProject.title}
+                Flagship Work
               </h2>
             </div>
 
-            <article
-              id={featuredProject.id}
-              className="card-glow overflow-hidden border border-dark-70 bg-dark-85 scroll-mt-28"
-            >
-              <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
-                <div className="h-72 overflow-hidden lg:h-full">
-                  <img
-                    src={featuredProject.image}
-                    alt={featuredProject.title}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="p-8">
-                  <div className="mb-5 flex items-center justify-between gap-4">
-                    <span className="text-xs font-display tracking-widest text-orange uppercase">
-                      {featuredProject.category}
-                    </span>
-                    <span className="text-xs font-display text-dark-40">
-                      {featuredProject.year}
-                    </span>
-                  </div>
-                  <p className="mb-6 max-w-xl text-sm leading-relaxed text-dark-30">
-                    {featuredProject.description}
-                  </p>
-                  <div className="mb-8 flex flex-wrap gap-2">
-                    {featuredProject.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="border border-dark-60 px-3 py-1 text-xs font-display tracking-wider text-dark-40 uppercase"
+            <div className="space-y-10">
+              {featuredProjects.map((featuredProject) => (
+                <article
+                  key={featuredProject.id}
+                  id={featuredProject.id}
+                  className="card-glow overflow-hidden border border-dark-70 bg-dark-85 scroll-mt-28"
+                >
+                  <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
+                    <div className="h-72 overflow-hidden lg:h-full">
+                      <img
+                        src={featuredProject.image}
+                        alt={featuredProject.title}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="p-8">
+                      <div className="mb-5 flex items-center justify-between gap-4">
+                        <span className="text-xs font-display tracking-widest text-orange uppercase">
+                          {featuredProject.category}
+                        </span>
+                        <span className="text-xs font-display text-dark-40">
+                          {featuredProject.year}
+                        </span>
+                      </div>
+                      <h3 className="mb-3 font-display text-2xl font-bold">
+                        {featuredProject.title}
+                      </h3>
+                      <p className="mb-6 max-w-xl text-sm leading-relaxed text-dark-30">
+                        {featuredProject.description}
+                      </p>
+                      <div className="mb-8 flex flex-wrap gap-2">
+                        {featuredProject.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="border border-dark-60 px-3 py-1 text-xs font-display tracking-wider text-dark-40 uppercase"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <a
+                        href={featuredProject.link}
+                        target={featuredProject.link === "#" ? undefined : "_blank"}
+                        rel={featuredProject.link === "#" ? undefined : "noopener noreferrer"}
+                        className="inline-block border border-orange px-6 py-3 text-xs font-display tracking-widest text-orange uppercase transition-all hover:bg-orange hover:text-white"
                       >
-                        {tag}
-                      </span>
-                    ))}
+                        {featuredProject.linkLabel}
+                      </a>
+                    </div>
                   </div>
-                  <a
-                    href={featuredProject.link}
-                    target={featuredProject.link === "#" ? undefined : "_blank"}
-                    rel={featuredProject.link === "#" ? undefined : "noopener noreferrer"}
-                    className="inline-block border border-orange px-6 py-3 text-xs font-display tracking-widest text-orange uppercase transition-all hover:bg-orange hover:text-white"
-                  >
-                    {featuredProject.linkLabel}
-                  </a>
-                </div>
-              </div>
-            </article>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
       )}

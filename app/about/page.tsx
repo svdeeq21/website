@@ -39,12 +39,59 @@ const timeline = [
   {
     year: "2025",
     title: "Production Scale",
-    desc: "Launched WhatsApp AI Sales CRM for Praise Dynasty Realty (Abuja). Built commerce-chat WhatsApp e-commerce platform. Led multi-sprint production deployments.",
+    desc: "Launched the multi-tenant Hooze CRM (pd-crm-backend) for Praise Dynasty Realty in Abuja — sprint by sprint from Sprint 0 through Sprint 9: FastAPI foundation, Evolution API WhatsApp layer, Gemini→Groq→HuggingFace AI fallback chain, pgvector RAG over property listings, a full lead conversation state machine, billing with Paystack, and a Next.js dashboard. Built commerce-chat, a WhatsApp-native checkout platform, in parallel.",
+  },
+  {
+    year: "2025 — Q4",
+    title: "The Audit That Changed How I Build",
+    desc: "Built a Sales Progression Engine on top of the CRM — playbooks, a rules engine, Next Best Action logic, and a cron-triggered scheduler running on GitHub Actions. Then I audited my own system properly, across 220 real leads and 7,293 real messages. The audit surfaced hard truths — the bot denying it was AI when asked directly, a duplicate-message race condition, vendor contacts being engaged as prospects, and 88% of leads never leaving COLD state. I rebuilt the trust layer, the dedup logic, and the lead segmentation from the ground up. That audit is the reason I trust my systems today.",
   },
   {
     year: "2026",
     title: "Now",
-    desc: "Leading development of Clinical Clarity (health tech). Expanding Hooze Enterprises AI automation services. Completing CS degree at AFIT.",
+    desc: "Running a full sprint relay on Hooze AI — the studio's own product — through Sprints 2 through 9: the flow engine, AI gateway, output formatting, refinement layer, rate limiting, sixteen analytics event types, CI/CD via GitHub Actions, and a live Vercel deployment. Finalized the Clinical Clarity pre-production plan (React Native, offline-first, explicit V1 success criteria). Built a systematic market-validation system to test new niches before committing to a pivot. Upgrading the Hooze Enterprises brand system across every property. Completing my CS degree at AFIT.",
+  },
+];
+
+const certifications = [
+  {
+    title: "AI & Automation",
+    issuer: "TS Academy",
+    meta: "3-month training programme · Certified July 05, 2026",
+    image: "/certs/ts-academy-ai-automation.png",
+    verify: "https://tsacademyonline.com",
+    id: "TSQ2SPUN3LMB8H",
+  },
+  {
+    title: "Java Programming — Beginner to Advanced",
+    issuer: "AQskill",
+    meta: "Certificate of Completion · June 10, 2025",
+    image: "/certs/aqskill-java.jpg",
+    verify: "https://www.aqskill.org/verify",
+    id: "189101A40634",
+  },
+  {
+    title: "Python Programming Mega Course",
+    issuer: "AQskill",
+    meta: "Certificate of Completion · June 13, 2025",
+    image: "/certs/aqskill-python.jpg",
+    verify: "https://www.aqskill.org/verify",
+    id: "185941A40634",
+  },
+];
+
+const vision = [
+  {
+    title: "Hooze CRM, everywhere WhatsApp is business",
+    desc: "Take the multi-tenant WhatsApp sales OS proven on Praise Dynasty Realty and make it the default conversational sales layer for African SMBs — real estate today, more verticals validated and onboarded next.",
+  },
+  {
+    title: "Clinical Clarity, closing the adherence gap",
+    desc: "An offline-first medication management app built for how Nigerian clinics actually operate — patchy connectivity, overworked staff, patients who need a WhatsApp nudge, not another app to remember.",
+  },
+  {
+    title: "Hooze AI, enterprise automation for the solo operator",
+    desc: "A done-for-you layer that gives small business owners the booking assistants, lead pipelines, and follow-up systems that used to cost agency money and agency timelines — live in 14 days.",
   },
 ];
 
@@ -159,6 +206,50 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Certifications */}
+      <section className="py-24 border-b border-dark-70">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="section-label mb-4">Proof of Work</p>
+          <h2 className="font-display font-800 text-4xl mb-4">Certifications</h2>
+          <p className="text-dark-30 text-sm leading-relaxed max-w-2xl mb-16">
+            Structured learning behind the shipped work — Java, Python, and applied AI &amp; automation.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {certifications.map((cert) => (
+              <div
+                key={cert.id}
+                className="card-glow border border-dark-70 bg-dark-85 overflow-hidden flex flex-col"
+              >
+                <div className="overflow-hidden border-b border-dark-70">
+                  <img
+                    src={cert.image}
+                    alt={`${cert.title} certificate`}
+                    className="w-full h-48 object-cover object-top"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="text-xs font-display tracking-widest uppercase text-orange mb-2">
+                    {cert.issuer}
+                  </div>
+                  <h3 className="font-display font-700 text-base mb-2 leading-snug">
+                    {cert.title}
+                  </h3>
+                  <p className="text-dark-30 text-xs mb-4">{cert.meta}</p>
+                  <a
+                    href={cert.verify}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto text-xs font-display tracking-widest uppercase text-dark-40 hover:text-orange transition-colors border-t border-dark-70 pt-4"
+                  >
+                    Verify · ID {cert.id} →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Tech Stack */}
       <section className="py-24 border-b border-dark-70">
         <div className="max-w-6xl mx-auto px-6">
@@ -216,6 +307,26 @@ export default function AboutPage() {
                 Active clients across real estate, e-commerce, and health sectors.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision */}
+      <section className="py-24 border-b border-dark-70">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="section-label mb-4">Where This Is Going</p>
+          <h2 className="font-display font-800 text-4xl mb-4">Vision</h2>
+          <p className="text-dark-30 text-sm leading-relaxed max-w-2xl mb-16">
+            I&apos;m not building isolated projects — I&apos;m building toward a specific future for
+            Hooze Enterprises. Three products carry that vision right now.
+          </p>
+          <div className="grid lg:grid-cols-3 gap-px bg-dark-70">
+            {vision.map((item) => (
+              <div key={item.title} className="bg-dark-100 p-10 hover:bg-dark-85 transition-colors">
+                <h3 className="font-display font-700 text-lg mb-4 text-orange">{item.title}</h3>
+                <p className="text-dark-30 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

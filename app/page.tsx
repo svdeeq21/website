@@ -139,10 +139,10 @@ export default function HomePage() {
                 link: "#",
               },
               {
-                title: "commerce-chat",
-                category: "AI E-Commerce",
-                desc: "WhatsApp-native checkout and digital fulfillment platform for Nigerian sellers. AI-driven state machine, Paystack payments, and automated product delivery.",
-                link: "#",
+                title: "Hooze AI",
+                category: "AI Automation Studio",
+                desc: "The Hooze Enterprises done-for-you layer — booking assistants, lead scraping, WhatsApp sales bots, and CRM sync, packaged as a fixed-scope offer. Live in production.",
+                link: "https://hoozeai.vercel.app",
               },
               {
                 title: "Clinical Clarity",
