@@ -135,7 +135,7 @@ export default function AboutPage() {
 
           <div className="flex flex-col gap-6">
             <div className="overflow-hidden border border-dark-70 h-[400px]">
-              <img src="/profile.png" alt="Sadiq Shehu Musa" className="w-full h-full object-cover object-center" />
+              <img src="/pass.png" alt="Sadiq Shehu Musa" className="w-full h-full object-cover object-center" />
             </div>
             <div className="grid grid-cols-3 gap-4">
               {[

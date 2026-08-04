@@ -12,19 +12,19 @@ type Project = {
 };
 
 const projects: Project[] = [
-  {
-    id: "whatsapp-sales-crm",
-    title: "WhatsApp AI Sales CRM",
-    category: "AI Automation",
-    description:
-      "Multi-tenant conversational CRM built for real estate agencies. Full LLM orchestration with Groq/Gemini fallback chain, pgvector-powered RAG for property knowledge, lead scoring, rolling conversation memory, state machine-driven sales flow, and a Next.js analytics dashboard. Pilot client: Praise Dynasty Realty, Abuja.",
-    link: "#",
-    linkLabel: "Case Study Coming Soon",
-    tags: ["Python", "FastAPI", "Supabase", "pgvector", "Groq", "Gemini", "Evolution API", "Next.js", "Railway"],
-    year: "2025–2026",
-    image: "/ai.png",
-    featured: true,
-  },
+  // {
+  //   id: "whatsapp-sales-crm",
+  //   title: "WhatsApp AI Sales CRM",
+  //   category: "AI Automation",
+  //   description:
+  //     "Multi-tenant conversational CRM built for real estate agencies. Full LLM orchestration with Groq/Gemini fallback chain, pgvector-powered RAG for property knowledge, lead scoring, rolling conversation memory, state machine-driven sales flow, and a Next.js analytics dashboard. Pilot client: Praise Dynasty Realty, Abuja.",
+  //   link: "#",
+  //   linkLabel: "Case Study Coming Soon",
+  //   tags: ["Python", "FastAPI", "Supabase", "pgvector", "Groq", "Gemini", "Evolution API", "Next.js", "Railway"],
+  //   year: "2025–2026",
+  //   image: "/ai.png",
+  //   featured: true,
+  // },
   {
     id: "hooze-ai",
     title: "Hooze AI",
@@ -35,12 +35,12 @@ const projects: Project[] = [
     linkLabel: "Visit Live Site",
     tags: ["Next.js", "TypeScript", "Vercel", "GitHub Actions", "Analytics", "Gemini", "Groq"],
     year: "2026",
-    image: "/ai.png",
+    image: "/hooze.png",
     featured: true,
   },
   {
     id: "commerce-chat",
-    title: "commerce-chat",
+    title: "Hooze CRM",
     category: "AI E-Commerce",
     description:
       "WhatsApp-native checkout and digital product fulfillment platform for Nigerian sellers. Deterministic AI state machine, Paystack payment verification, atomic delivery logic, and per-instance webhook auth.",
@@ -48,7 +48,7 @@ const projects: Project[] = [
     linkLabel: "Case Study Coming Soon",
     tags: ["Python", "FastAPI", "Next.js", "Supabase", "Paystack", "Evolution API", "Groq", "Vercel"],
     year: "2026",
-    image: "/ai.png",
+    image: "/ho.jpeg",
   },
   {
     id: "clinical-clarity",
@@ -60,7 +60,7 @@ const projects: Project[] = [
     linkLabel: "In Development",
     tags: ["React Native", "FastAPI", "Supabase", "WhatsApp", "AI"],
     year: "2026",
-    image: "/ai.png",
+    image: "/ceenko.png",
   },
   {
     id: "studyapp",
