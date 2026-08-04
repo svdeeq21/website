@@ -12,19 +12,6 @@ type Project = {
 };
 
 const projects: Project[] = [
-  // {
-  //   id: "whatsapp-sales-crm",
-  //   title: "WhatsApp AI Sales CRM",
-  //   category: "AI Automation",
-  //   description:
-  //     "Multi-tenant conversational CRM built for real estate agencies. Full LLM orchestration with Groq/Gemini fallback chain, pgvector-powered RAG for property knowledge, lead scoring, rolling conversation memory, state machine-driven sales flow, and a Next.js analytics dashboard. Pilot client: Praise Dynasty Realty, Abuja.",
-  //   link: "#",
-  //   linkLabel: "Case Study Coming Soon",
-  //   tags: ["Python", "FastAPI", "Supabase", "pgvector", "Groq", "Gemini", "Evolution API", "Next.js", "Railway"],
-  //   year: "2025–2026",
-  //   image: "/ai.png",
-  //   featured: true,
-  // },
   {
     id: "hooze-ai",
     title: "Hooze AI",
@@ -36,6 +23,19 @@ const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "Vercel", "GitHub Actions", "Analytics", "Gemini", "Groq"],
     year: "2026",
     image: "/hooze.png",
+    featured: true,
+  },
+    {
+    id: "whatsapp-sales-crm",
+    title: "WhatsApp AI Sales CRM",
+    category: "AI Automation",
+    description:
+      "Multi-tenant conversational CRM built for real estate agencies. Full LLM orchestration with Groq/Gemini fallback chain, pgvector-powered RAG for property knowledge, lead scoring, rolling conversation memory, state machine-driven sales flow, and a Next.js analytics dashboard. Pilot client: Praise Dynasty Realty, Abuja.",
+    link: "#",
+    linkLabel: "Case Study Coming Soon",
+    tags: ["Python", "FastAPI", "Supabase", "pgvector", "Groq", "Gemini", "Evolution API", "Next.js", "Railway"],
+    year: "2025–2026",
+    image: "/comingsoon.jpg",
     featured: true,
   },
   {
@@ -84,7 +84,7 @@ const projects: Project[] = [
     linkLabel: "Project Notes",
     tags: ["Python", "Streamlit", "Groq", "Gemini", "Gmail", "Supabase"],
     year: "2025",
-    image: "/ai.png",
+    image: "/comingsoon.jpg",
   },
   {
     id: "afit-admission-assistant",
@@ -113,7 +113,7 @@ export default function PortfolioPage() {
             Portfolio
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-dark-30">
-            AI systems, automation products, and backend infrastructure — built for real businesses, running in production.
+            AI systems, automation products, and backend infrastructure built for real businesses, running in production.
           </p>
         </div>
       </section>
